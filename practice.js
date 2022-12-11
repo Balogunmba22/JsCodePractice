@@ -1,12 +1,19 @@
 // REST AND SPREAD OPERATOR
-function rest(...args) {
+
+//Using Rest
+function add(...args) {
   let sum = 0;
   for (const number of args) {
     sum += number;
   }
   return sum;
 }
-// console.log(rest(5, 8, 7));
+console.log(add(5, 8, 7));
+
+//Using Spread
+let fruits = ["mango", "apple"];
+let moreFruits = [...fruits, "banana", "paw paw"];
+console.log(moreFruits);
 
 // EXERCISES
 let person = {
