@@ -99,6 +99,7 @@ fizzbuzz(25);
 
 // Short Circuiting with logical operators &&, ||, ??
 
+// Using the sort method without manipulating the original array
 let y = [1, 5, 3, 8, 6, 4];
 
 let sorted = [...y].sort((a, b) => a - b);
@@ -121,6 +122,43 @@ let vehicles = [
   },
 ];
 
-let sortVeh = vehicles.splice().sort((a, b) => a.tyres - b.tyres);
+let sortVeh = vehicles.slice().sort((a, b) => a.tyres - b.tyres);
 console.log(sortVeh);
 console.log(vehicles);
+
+// Working with immutable Arrays
+let birds = [
+  {
+    name: "parrot",
+    color: "yellow",
+    beak: "small",
+    category: "pet",
+    id: 1,
+  },
+
+  {
+    name: "eagle",
+    color: "black",
+    beak: "long",
+    category: "wild",
+    id: 2,
+  },
+];
+
+let newBird = {
+  name: "hen",
+  color: "grey",
+  beak: "medium",
+  category: "food",
+  id: 3,
+};
+
+const addBird = [...birds, newBird];
+
+const deleteBird = addBird.filter((bird) => bird.id !== 2);
+console.log(deleteBird);
+
+const updateBird = addBird.map((bird) =>
+  bird.id == 3 ? { ...bird, color: "brown" } : bird
+);
+console.log(updateBird);
